@@ -1,0 +1,116 @@
+---
+const utm = (medium: string) =>
+  `?utm_source=hansoom_dev&utm_medium=${medium}&utm_campaign=launch`;
+
+const links = [
+  {
+    label: 'Documentation',
+    href: `https://hansoom.dev/docs${utm('footer_docs')}`,
+  },
+  {
+    label: 'GitHub',
+    href: `https://github.com/soom-dev/soom${utm('footer_github')}`,
+  },
+  {
+    label: 'npm',
+    href: `https://www.npmjs.com/package/hansoom${utm('footer_npm')}`,
+  },
+  {
+    label: '𝕏',
+    href: `https://x.com/hansoom_dev${utm('footer_x')}`,
+  },
+  {
+    label: 'Telemetry',
+    href: `https://hansoom.dev/telemetry${utm('footer_telemetry')}`,
+  },
+];
+---
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-name">Hansoom</span>
+      <span class="footer-hangul">한숨</span>
+    </div>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      {
+        links.map((link) => (
+          <a href={link.href} target="_blank" rel="noopener noreferrer">
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <p class="footer-copy">
+      Open source under MIT. Breathe life into your diagrams.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--soom-edge-stroke-rest);
+    padding: 48px 0 32px;
+  }
+
+  .footer-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--soom-space-xxl);
+    text-align: center;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--soom-space-sm);
+    margin-bottom: var(--soom-space-xl);
+  }
+
+  .footer-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--soom-text);
+  }
+
+  .footer-hangul {
+    font-size: 1rem;
+    color: var(--soom-text-muted);
+    opacity: 0.6;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--soom-space-lg) var(--soom-space-xl);
+    margin-bottom: var(--soom-space-xl);
+  }
+
+  .footer-links a {
+    color: var(--soom-text-muted);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--soom-accent);
+    text-decoration: none;
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--soom-text-muted);
+    opacity: 0.5;
+  }
+
+  @media (max-width: 480px) {
+    .footer-inner {
+      padding: 0 var(--soom-space-lg);
+    }
+  }
+</style>

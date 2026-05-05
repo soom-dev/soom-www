@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.svelte';
+import ProductTour from '../components/ProductTour.svelte';
+import PitchSection from '../components/PitchSection.astro';
+import Footer from '../components/Footer.astro';
+import ThemeToggle from '../components/ThemeToggle.svelte';
+---
+
+<BaseLayout>
+  <ThemeToggle client:idle />
+  <main>
+    <Hero client:visible />
+    <ProductTour client:visible />
+    <PitchSection />
+  </main>
+  <Footer />
+</BaseLayout>
